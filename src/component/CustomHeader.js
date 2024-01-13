@@ -10,27 +10,27 @@ export default function CustomHeader(props) {
         <View>
             <StatusBar barStyle={"dark-content"} backgroundColor={"white"} />
             <View style={[styles.headerview, { ...props.headerview }]}>
-                <View style={{ justifyContent: 'space-between', flexDirection: 'row', alignItems: "center", paddingHorizontal: 10 }}>
-                    <View style={Styles.fdCenter}>
-                        <TouchableOpacity onPress={props.goBack}>
-                            <Image source={ImagePath.LEFT_ARROW} resizeMode={'contain'} style={{ width: 25, height: 25, ...props.leftImageStyle }} />
-                        </TouchableOpacity>
-                        <Text style={styles.topHeaderTitleText}>{props.headerTitle}</Text>
+                <View style={{ justifyContent: 'space-between', flexDirection: 'row', alignItems: "center", paddingHorizontal: 10 , justifyContent:"center", alignSelf:"center"}}>
+                    <View style={{ justifyContent:"center", alignItems:"center"}}>
+                        <Image source={ImagePath.MAIN_LOGO} resizeMode={'contain'} style={{ width: 70, height: 70}} />
                     </View>
-                    <View style={[Styles.fdCenter, { alignItems: "flex-end", flex: 1, justifyContent: "flex-end", alignSelf: "flex-end" }]}>
+                    {!props.isShowRightIcon&&(
+                    <View style={[Styles.fdCenter, {   flex:1,  justifyContent:"flex-end"}]}>
                         <TouchableOpacity style={{ marginHorizontal: 10 }}>
-                            <Image source={ImagePath.SEACH_ICON} resizeMode={'contain'} style={{ width: 25, height: 25 }} />
+                            <Image source={ImagePath.PROFILE_ICON} resizeMode={'contain'} style={{ width: 20, height: 20 }} />
                         </TouchableOpacity>
-                        <TouchableOpacity style={{ marginHorizontal: 10 }}>
-                            <Image source={ImagePath.WISHLIST_ICON} resizeMode={'contain'} style={{ width: 25, height: 25 }} />
+                        <TouchableOpacity onPress={props.onSearchPress} style={{ marginHorizontal: 10 }}>
+                            <Image source={ImagePath.SEACH_ICON} resizeMode={'contain'} style={{ width: 20, height: 20 }} />
                         </TouchableOpacity>
-                        <TouchableOpacity style={{ marginHorizontal: 10 }}>
-                            <Image source={ImagePath.SHOPPING_BAG} resizeMode={'contain'} style={{ width: 25, height: 25 }} />
+                        <TouchableOpacity  style={[Styles.fdCenter,{ marginHorizontal: 10 }]}>
+                            <Image source={ImagePath.PLUS_ICON} resizeMode={'contain'} style={{ width: 15, height: 15 }} />
+                            <Text style={styles.topHeaderTitleText}>{"Add Book"}</Text>
                         </TouchableOpacity>
                     </View>
+                    )}
                 </View>
             </View>
-            <View style={{ borderWidth: 0.8, borderColor: "#cccccc", width: "100%", alignSelf: "center", marginVertical: 10 }} />
+            {/* <View style={{ borderWidth: 0.8, borderColor: "#cccccc", width: "100%", alignSelf: "center", marginVertical: 10 }} /> */}
         </View>
 
     )

@@ -5,22 +5,26 @@ import Styles from '../styles/Styles';
 import * as ApiConstants from '../config/ApiConstants';
 import ImagePath from '../assets/ImagePath';
 import CustomHeader from '../component/CustomHeader';
-const HomeScreen = () => {
+
+const HomeScreen = (props) => {
     const [isLoading, setIsloading] = useState(true);
     const [productList, setProductList] = useState(null);
 
     useEffect(() => {
-        fetchData()
+        // fetchData()
     }, []);
 
     fetchData = () => {
         try {
-            fetch(ApiConstants.PRODUCT_API, {
+            let endpoint = ApiConstants.BaseUrl + ApiConstants.DOWNLOAD_BOOK
+            console.log("url", endpoint);
+            fetch(endpoint, {
                 headers: {
                     'Content-Type': 'application/json'
-                }
+                },
             }).then(response => response.json())
                 .then((responseJson) => {
+                    console.log("responseJson: " + JSON.stringify(responseJson));
                     if (responseJson.status) {
                         setIsloading(false);
                         console.log("fbdsf", JSON.stringify(responseJson));
@@ -39,24 +43,10 @@ const HomeScreen = () => {
 
     return (
         <View style={Styles.container}>
-            <CustomHeader 
-            headerTitle={"Kitchen"}
+            <CustomHeader
+            onSearchPress={()=> props.navigation.navigate("SearchScreen")}
             />
             <View>
-                <View style={[Styles.fdCenter, { paddingHorizontal: 10, marginVertical:5 }]}>
-                    <View style={{ flex: 1 }}>
-                        <Text style={Styles.totalItems}>{global.totalItems} Products</Text>
-                    </View>
-                    <View style={[Styles.fdCenter, {}]}>
-                        <Image source={ImagePath.SORT_ICON} style={Styles.filterSortIcon} resizeMode="contain" />
-                        <Text style={Styles.filterSortText}>Sort</Text>
-                    </View>
-                    <View style={[Styles.fdCenter, {marginLeft:10}]}>
-                        <Image source={ImagePath.FILTER_ICON} style={Styles.filterSortIcon} resizeMode="contain" />
-                        <Text style={Styles.filterSortText}>Filter</Text>
-                    </View>
-
-                </View>
                 <FlatList
                     data={productList}
                     keyExtractor={(item, index) => index.toString()}
@@ -64,10 +54,8 @@ const HomeScreen = () => {
                     numColumns={2}
                     renderItem={({ item }) => (
 
-                        <View style={[Styles.homepage_card]}>
-                            <ProductsList
-                                product={item}
-                            />
+                        <View style={[Styles.commonCardStyle, Styles.shadowStyle,{}]}>
+
 
                         </View>
 

@@ -10,7 +10,7 @@ const ProductsList = (props) => {
 
     return (
         <>                   
-            <View style={{ height: ScreenWidth / 1.4, width: ScreenWidth / 2.1}}>
+            <View style={{ height: ScreenWidth / 1.4, width: ScreenWidth / 2.1, backgroundColor:"red"}}>
                 <View style={{flex:1}}>
                     <Image
                         source={{ uri: item?.mediaUrl }}

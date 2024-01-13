@@ -6,38 +6,8 @@ export default StyleSheet.create({
         backgroundColor: "#ffffff",
         flex: 1,
     },
-    productImage: {
-        alignSelf: 'center',
-        alignItems: 'center',
-        flex: 1,
-        width: '100%',
-        borderRadius: 5,
-        height: ScreenWidth / 2.5,
-    },
-    productPrice: {
-        fontSize: 16,
-        color: "#000000",
-        fontWeight: "400",
-    },
-    productCategory: {
-        fontSize: 17,
-        fontWeight: "700",
-        paddingVertical: 2,
-        color: "#000000",
-    },
-    totalItems: {
-        fontSize: 15,
-        fontWeight: "400",
-        color: "#000000",
-    },
-    productName: {
-        fontSize: 17,
-        paddingVertical: 2,
-        fontWeight: "400",
-        color: "#000000",
-    },
     homepage_card: {
-        backgroundColor: "#ffffff",
+        backgroundColor: '#a40cc9',
         borderRadius: 5,
         padding: 4
     },
@@ -48,9 +18,38 @@ export default StyleSheet.create({
     filterSortIcon: {
         width: 20, height: 20, marginHorizontal: 5
     },
-    filterSortText:{
-        fontSize:14,
-        fontWeight:"400",
-        lineHeight:15
-    }
+    filterSortText: {
+        fontSize: 14,
+        fontWeight: "400",
+        lineHeight: 15
+    },
+    commonCardStyle: {
+        padding: 10,
+        paddingHorizontal: 10,
+        margin: 10,
+        marginBottom: 10,
+        borderRadius: 5
+    },
+    shadowStyle: {
+        shadowColor: "#878787",
+        shadowOffset: {
+            width: 0,
+            height: 2
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+        backgroundColor:"white"
+    },
+    toastStyle: {
+        borderRadius: 40,
+        backgroundColor: '#333333',
+        justifyContent: 'center',
+        paddingVertical: 10,
+        paddingHorizontal: 20
+    },
+    toastText: {
+        fontSize: 12,
+        color: '#ffffff',
+    },
 });
